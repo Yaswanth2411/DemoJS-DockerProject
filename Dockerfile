@@ -10,7 +10,7 @@ COPY package.json .
 RUN npm install 
 
 # Install nodemon conditionally
-RUN if [ "$ENV" = "dev" ]; then npm install -g nodemon; fi
+#RUN if [ "$ENV" = "dev" ]; then npm install -g nodemon; fi
 
 COPY . .
 

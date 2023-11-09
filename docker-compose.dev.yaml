@@ -1,0 +1,9 @@
+version: '3'
+services:
+  node-app:
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=devlopment
+    command: npx nodemon -L index.js
