@@ -10,10 +10,12 @@ COPY package.json .
 RUN npm install 
 
 # Install nodemon conditionally
-RUN if [ "$ENV" = "dev" ]; then npm install -g nodemon; fi
+#RUN if [ "$ENV" = "dev" ]; then npm install -g nodemon; fi
 
 COPY . .
-EXPOSE 3000
+
+ENV PORT 3000
+EXPOSE $PORT
 
 # Use different CMD commands based on the environment
-CMD if [ "$ENV" = "dev" ]; then npm run dev; else npm start; fi
+CMD if [ "$ENV" = "dev" ]; then npx nodemon -L index.js; else npm start; fi
